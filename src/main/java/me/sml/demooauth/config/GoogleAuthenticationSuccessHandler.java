@@ -1,6 +1,7 @@
 package me.sml.demooauth.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import me.sml.demooauth.GoogleUser;
 import org.springframework.security.core.Authentication;
@@ -16,20 +17,16 @@ import java.io.IOException;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class GoogleAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    private HttpSession httpSession;
-    private ObjectMapper objectMapper;
-
-    public GoogleAuthenticationSuccessHandler(HttpSession httpSession, ObjectMapper objectMapper) {
-        this.httpSession = httpSession;
-        this.objectMapper = objectMapper;
-    }
+    private final HttpSession httpSession;
+    private final ObjectMapper objectMapper;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        
-        httpSession.setAttribute(SessionConstants.LOGIN_USER, getGoogleUser(authentication)); // 간단한 구글계정 정보를 세션에 저장
+
+        httpSession.setAttribute("LOGIN_USER", getGoogleUser(authentication)); // 간단한 구글계정 정보를 세션에 저장
         response.sendRedirect("/me");
     }
 

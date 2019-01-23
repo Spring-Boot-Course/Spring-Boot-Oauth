@@ -23,7 +23,7 @@ public class MainController {
     public Map<String, Object> me(){
         log.info("Session : {}", String.valueOf(httpSession.getAttribute(SessionConstants.LOGIN_USER)));
         Map<String, Object> response = new LinkedHashMap<>();
-        response.put("profile", httpSession.getAttribute(SessionConstants.LOGIN_USER));
+        response.put("profile", httpSession.getAttribute("LOGIN_USER"));
         return response;
     }
 }
