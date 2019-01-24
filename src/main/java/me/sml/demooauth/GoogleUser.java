@@ -8,6 +8,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.io.Serializable;
 
+
 @NoArgsConstructor
 @Getter
 @Setter
