@@ -162,3 +162,7 @@ public class GoogleAuthenticationSuccessHandler implements AuthenticationSuccess
 
 > AuthenticationSuccessHandler를 구현하여, onAuthenticationSuccess를 오버라이딩. 이때, 구글 계정 정보는 authentication을 통해 얻을 수 있다.
 또한, 타입 캐스팅 한 결과(Map 형식)을 Object Mapper를 통해 JSON으로 변환
+
+### 참조
+* https://jojoldu.tistory.com/170?category=635883
+* https://www.baeldung.com/spring-session-jdbc
